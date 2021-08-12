@@ -4,10 +4,13 @@ import { ProductCreateComponent } from './features/product/product-create/produc
 import { ProductDetailComponent } from './features/product/product-detail/product-detail.component';
 import { ProductEditComponent } from './features/product/product-edit/product-edit.component';
 import { ProductListComponent } from './features/product/product-list/product-list.component';
+import { RequestCreateComponent } from './features/request/request-create/request-create.component';
+import { RequestListComponent } from './features/request/request-list/request-list.component';
 import { UserCreateComponent } from './features/user/user-create/user-create.component';
 import { UserDetailComponent } from './features/user/user-detail/user-detail.component';
 import { UserEditComponent } from './features/user/user-edit/user-edit.component';
 import { UserListComponent } from './features/user/user-list/user-list.component';
+import { UserLoginComponent } from './features/user/user-login/user-login.component';
 import { VendorCreateComponent } from './features/vendor/vendor-create/vendor-create.component';
 import { VendorDetailComponent } from './features/vendor/vendor-detail/vendor-detail.component';
 import { VendorEditComponent } from './features/vendor/vendor-edit/vendor-edit.component';
@@ -15,6 +18,7 @@ import { VendorListComponent } from './features/vendor/vendor-list/vendor-list.c
 
 const routes: Routes = [
   {path: '', redirectTo:'/user-list', pathMatch:'full'},
+  {path: 'user-login', component:UserLoginComponent},
   {path: 'user-list', component:UserListComponent},
   {path: 'user-detail/:id', component:UserDetailComponent},
   {path: 'user-create', component:UserCreateComponent},
@@ -27,6 +31,8 @@ const routes: Routes = [
   {path: 'product-detail/:id', component:ProductDetailComponent},
   {path: 'product-create', component:ProductCreateComponent},
   {path: 'product-edit/:id', component:ProductEditComponent},
+  {path: 'request-list', component:RequestListComponent},
+  {path: 'request-create', component:RequestCreateComponent},
   {path:'**', component:UserListComponent}
 ];
 
