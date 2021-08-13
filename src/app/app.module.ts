@@ -21,6 +21,8 @@ import { ProductEditComponent } from './features/product/product-edit/product-ed
 import { UserLoginComponent } from './features/user/user-login/user-login.component';
 import { RequestListComponent } from './features/request/request-list/request-list.component';
 import { RequestCreateComponent } from './features/request/request-create/request-create.component';
+import { RequestEditComponent } from './features/request/request-edit/request-edit.component';
+import { RequestDetailComponent } from './features/request/request-detail/request-detail.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { RequestCreateComponent } from './features/request/request-create/reques
     ProductEditComponent,
     UserLoginComponent,
     RequestListComponent,
-    RequestCreateComponent
+    RequestCreateComponent,
+    RequestEditComponent,
+    RequestDetailComponent
   ],
   imports: [
     BrowserModule,
