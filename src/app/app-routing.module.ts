@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LineItemCreateComponent } from './features/line-item/line-item-create/line-item-create.component';
+import { LineItemEditComponent } from './features/line-item/line-item-edit/line-item-edit.component';
 import { ProductCreateComponent } from './features/product/product-create/product-create.component';
 import { ProductDetailComponent } from './features/product/product-detail/product-detail.component';
 import { ProductEditComponent } from './features/product/product-edit/product-edit.component';
@@ -7,6 +9,7 @@ import { ProductListComponent } from './features/product/product-list/product-li
 import { RequestCreateComponent } from './features/request/request-create/request-create.component';
 import { RequestDetailComponent } from './features/request/request-detail/request-detail.component';
 import { RequestEditComponent } from './features/request/request-edit/request-edit.component';
+import { RequestLinesComponent } from './features/request/request-lines/request-lines.component';
 import { RequestListComponent } from './features/request/request-list/request-list.component';
 import { UserCreateComponent } from './features/user/user-create/user-create.component';
 import { UserDetailComponent } from './features/user/user-detail/user-detail.component';
@@ -37,6 +40,9 @@ const routes: Routes = [
   {path: 'request-create', component:RequestCreateComponent},
   {path: 'request-edit/:id', component:RequestEditComponent},
   {path: 'request-detail/:id', component:RequestDetailComponent},
+  {path: 'request-lines/:id', component:RequestLinesComponent},
+  {path: 'line-item-create/:id', component:LineItemCreateComponent},
+  {path: 'line-item-edit/:id', component:LineItemEditComponent},
   {path:'**', component:UserListComponent}
 ];
 
