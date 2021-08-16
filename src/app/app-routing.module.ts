@@ -6,11 +6,13 @@ import { ProductCreateComponent } from './features/product/product-create/produc
 import { ProductDetailComponent } from './features/product/product-detail/product-detail.component';
 import { ProductEditComponent } from './features/product/product-edit/product-edit.component';
 import { ProductListComponent } from './features/product/product-list/product-list.component';
+import { RequestApproveComponent } from './features/request/request-approve/request-approve.component';
 import { RequestCreateComponent } from './features/request/request-create/request-create.component';
 import { RequestDetailComponent } from './features/request/request-detail/request-detail.component';
 import { RequestEditComponent } from './features/request/request-edit/request-edit.component';
 import { RequestLinesComponent } from './features/request/request-lines/request-lines.component';
 import { RequestListComponent } from './features/request/request-list/request-list.component';
+import { RequestReviewComponent } from './features/request/request-review/request-review.component';
 import { UserCreateComponent } from './features/user/user-create/user-create.component';
 import { UserDetailComponent } from './features/user/user-detail/user-detail.component';
 import { UserEditComponent } from './features/user/user-edit/user-edit.component';
@@ -43,6 +45,8 @@ const routes: Routes = [
   {path: 'request-lines/:id', component:RequestLinesComponent},
   {path: 'line-item-create/:id', component:LineItemCreateComponent},
   {path: 'line-item-edit/:id', component:LineItemEditComponent},
+  {path: 'request-review', component:RequestReviewComponent},
+  {path: 'request-approve/:id', component:RequestApproveComponent},
   {path:'**', component:UserListComponent}
 ];
 

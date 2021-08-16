@@ -7,7 +7,7 @@ import { ProductService } from 'src/app/service/product.service';
 import { RequestService } from 'src/app/service/request.service';
 import { SystemService } from 'src/app/service/system.service';
 import { Request } from '../../../model/request.class';
-
+ 
 @Component({
   selector: 'app-line-item-edit',
   templateUrl: './line-item-edit.component.html',
@@ -36,21 +36,21 @@ export class LineItemEditComponent implements OnInit {
 
     this.request.user=this.sysSvc.loggedInUser;
 
-    this.route.params.subscribe(parms => this.lineItemId = parms["id"]);
-    console.log('lineItemId= '+this.lineItemId);
-    this.lineItemSvc.get(this.lineItemId).subscribe(
-      resp => {
-          this.lineItem= resp as LineItem;},
-      err => {console.log(err);}        
-    );
-
-     this.route.params.subscribe(parms => this.requestId = parms["id"]);
-     console.log('requestId= '+this.requestId);
-     this.requestSvc.get(this.requestId).subscribe(
+     this.route.params.subscribe(parms => this.lineItemId = parms["id"]);
+     console.log('lineItemId= '+this.lineItemId);
+     this.lineItemSvc.get(this.lineItemId).subscribe(
        resp => {
-           this.request= resp as Request;},
+           this.lineItem= resp as LineItem;},
        err => {console.log(err);}        
      );
+
+      this.route.params.subscribe(parms => this.requestId = parms["id"]);
+      console.log('requestId= '+this.requestId);
+      this.requestSvc.get(this.requestId).subscribe(
+        resp => {
+            this.request= resp as Request;},
+        err => {console.log(err);}        
+      );
 
     this.productSvc.list()
     .subscribe(
@@ -59,7 +59,7 @@ export class LineItemEditComponent implements OnInit {
         console.log("list of products: ", this.products);
       },
       err => {
-        console.log(err);
+        console.log(err); 
       }
     );
 
@@ -68,7 +68,7 @@ export class LineItemEditComponent implements OnInit {
   save() {
     this.lineItemSvc.edit(this.lineItem).subscribe(
       resp => {this.lineItem= resp as LineItem;
-              this.router.navigateByUrl('/request-lines/'+this.requestId)},
+              this.router.navigateByUrl('/request-lines/'+this.lineItem.request.id)},
       err => {console.log(err);}
     );
 
