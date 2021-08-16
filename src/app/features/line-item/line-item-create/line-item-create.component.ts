@@ -41,9 +41,13 @@ export class LineItemCreateComponent implements OnInit {
             err=> {console.log(err);}
     );
         
-    this.productSvc.list().subscribe(
-      resp => { this.products = resp as Product[];},                
-      err => {console.log(err);}
+    this.productSvc.list()
+    .subscribe(
+      resp => { 
+        this.products = resp as Product[];
+      },                
+      err => {
+        console.log(err);}
     );
  
   }

@@ -21,6 +21,7 @@ export class LineItemEditComponent implements OnInit {
   request: Request= new Request();
   products: Product[]= [];
   requestId: number= 0;
+  lineItemId: number= 0;
 
   constructor(
     private lineItemSvc: LineItemService,
@@ -35,13 +36,21 @@ export class LineItemEditComponent implements OnInit {
 
     this.request.user=this.sysSvc.loggedInUser;
 
-    this.route.params.subscribe(parms => this.requestId = parms["id"]);
-    console.log('requestId= '+this.requestId);
-    this.requestSvc.get(this.requestId).subscribe(
+    this.route.params.subscribe(parms => this.lineItemId = parms["id"]);
+    console.log('lineItemId= '+this.lineItemId);
+    this.lineItemSvc.get(this.lineItemId).subscribe(
       resp => {
-          this.request= resp as Request;},
+          this.lineItem= resp as LineItem;},
       err => {console.log(err);}        
     );
+
+     this.route.params.subscribe(parms => this.requestId = parms["id"]);
+     console.log('requestId= '+this.requestId);
+     this.requestSvc.get(this.requestId).subscribe(
+       resp => {
+           this.request= resp as Request;},
+       err => {console.log(err);}        
+     );
 
     this.productSvc.list()
     .subscribe(
@@ -57,12 +66,16 @@ export class LineItemEditComponent implements OnInit {
   }
 
   save() {
-    this.lineItemSvc.create(this.lineItem).subscribe(
+    this.lineItemSvc.edit(this.lineItem).subscribe(
       resp => {this.lineItem= resp as LineItem;
-              this.router.navigateByUrl('/request-list')},
+              this.router.navigateByUrl('/request-lines/'+this.requestId)},
       err => {console.log(err);}
     );
 
+  }
+
+  compProduct(a: Product, b: Product): boolean {
+    return a && b && a.id === b.id;
   }
 
 }

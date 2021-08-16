@@ -47,7 +47,7 @@ export class ProductEditComponent implements OnInit {
   }
 
   save() {
-    this.productSvc.create(this.product).subscribe(
+    this.productSvc.edit(this.product).subscribe(
       resp => {this.product= resp as Product;
               this.router.navigateByUrl('/product-list')},
       err => {console.log(err);}
