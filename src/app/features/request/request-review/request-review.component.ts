@@ -19,6 +19,7 @@ export class RequestReviewComponent implements OnInit {
   requestId: number= 0;
   user: User= new User();
   userId: number= 0;
+  loggedInUser: User= new User();
 
   constructor(
     private requestSvc: RequestService,
@@ -29,7 +30,10 @@ export class RequestReviewComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.request.user=this.sysSvc.loggedInUser;
+    
+    this.sysSvc.checkLogin();
+
+    this.loggedInUser=this.sysSvc.loggedInUser;
 
     //  this.requestSvc.list()
     //  .subscribe(

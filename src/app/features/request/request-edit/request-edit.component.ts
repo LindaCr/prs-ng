@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/model/user.class';
 import { RequestService } from 'src/app/service/request.service';
+import { SystemService } from 'src/app/service/system.service';
 import { UserService } from 'src/app/service/user.service';
 import { Request } from '../../../model/request.class';
 
@@ -16,15 +17,21 @@ export class RequestEditComponent implements OnInit {
   request: Request= new Request();
   requestId: number= 0;
   users: User[]= [];
+  loggedInUser: User= new User();
   
   constructor(
     private requestSvc: RequestService, 
     private userSvc: UserService,
+    private sysSvc: SystemService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+
+    this.sysSvc.checkLogin();
+
+    this.loggedInUser=this.sysSvc.loggedInUser;
 
     this.route.params.subscribe(parms => this.requestId = parms["id"]);
     console.log('productId= '+this.requestId);

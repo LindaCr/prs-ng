@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LineItem } from 'src/app/model/line-item.class';
 import { Product } from 'src/app/model/product.class';
+import { User } from 'src/app/model/user.class';
 import { LineItemService } from 'src/app/service/line-item.service';
 import { ProductService } from 'src/app/service/product.service';
 import { RequestService } from 'src/app/service/request.service';
@@ -21,6 +22,7 @@ export class LineItemCreateComponent implements OnInit {
   request: Request= new Request();
   products: Product[]= [];
   requestId: number= 0;
+  loggedInUser: User= new User();
 
   constructor(
     private lineItemSvc: LineItemService,
@@ -33,7 +35,9 @@ export class LineItemCreateComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.request.user=this.sysSvc.loggedInUser;
+    this.sysSvc.checkLogin();
+
+    this.loggedInUser=this.sysSvc.loggedInUser;
     
     this.route.params.subscribe(parms => this.requestId = parms["id"]);
     this.requestSvc.get(this.requestId).subscribe(

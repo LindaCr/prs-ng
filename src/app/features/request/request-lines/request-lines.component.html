@@ -1,6 +1,7 @@
 <app-menu></app-menu>
 <section class="heading">
     <span class="page-title font-weight-bold font-style-italic">{{title}}</span>
+    <span style="float: right; padding-right: 30px; font-style:italic; font-weight: bold">Hello, {{loggedInUser.firstName}}</span>
 </section>
 <table class="table table-striped">
     <thead>
@@ -13,7 +14,7 @@
     </thead>
     <tbody>
     <tr>
-        <td>{{request.user.firstName}}{{request.user.lastName}}</td>
+        <td>{{request.user.firstName}} {{request.user.lastName}}</td>
         <td>{{request.description}}</td>
         <td>{{request.status}}</td>
         <td>{{request.total}}</td>
@@ -55,5 +56,5 @@
     </tr>
     </tbody>
 </table>
-<span><button (click)="submit()" class="btn btn-sm btn-primary">Submit</button></span>
+<span>'      <button (click)="submit()" class="btn btn-sm btn-primary">Submit</button></span>
 

@@ -1,5 +1,8 @@
 <app-menu></app-menu>
+<section>
 <span class='component-title'>[{{title}}]</span>
+<span style="float: right; padding-right: 30px; font-style:italic; font-weight: bold">Hello, {{loggedInUser.firstName}}</span>
+</section>
 <p *ngIf='!lineItem'>Loading...</p>
 <div *ngIf='lineItem'>
   <main class="single">
@@ -24,5 +27,5 @@
       </tr>
     </table>
   </main>
-  <span><button (click)="save()" class="btn btn-sm btn-primary">Update</button></span>
+  <span>'      <button (click)="save()" class="btn btn-sm btn-primary">Update</button></span>
 </div>
