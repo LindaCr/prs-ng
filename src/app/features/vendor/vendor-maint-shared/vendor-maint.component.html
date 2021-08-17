@@ -1,5 +1,9 @@
 <app-menu></app-menu>
-<span class='component-title'>[{{title}}]</span>
+<section class="heading">
+  <span class="page-title font-weight-bold font-italic">{{title}}</span>
+  <span> | <a routerLink="/vendor-list">Return to List</a></span>
+  <span style="float: right; padding-right: 30px; font-style:italic; font-weight: bold">Hello, {{loggedInUser.firstName}}</span>
+</section>
 <p *ngIf='!vendor'>Loading...</p>
 <div *ngIf='vendor'>
   <main class="single">
@@ -70,6 +74,6 @@
       </tr>
     </table>
   </main>
-  <span><button (click)="save()" class="btn btn-sm btn-primary">{{submitBtnTitle}}</button></span>
+  <span>'      <button (click)="save()" class="btn btn-sm btn-primary">{{submitBtnTitle}}</button></span>
 </div>
 
