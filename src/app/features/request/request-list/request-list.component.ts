@@ -30,7 +30,6 @@ export class RequestListComponent implements OnInit {
     .subscribe(
       resp => {
         this.requests = resp as Request[];
-        console.log("list of requests: ", this.requests);
       },
       err => {
         console.log(err);

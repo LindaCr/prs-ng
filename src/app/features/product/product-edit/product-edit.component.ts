@@ -35,7 +35,6 @@ export class ProductEditComponent implements OnInit {
     this.loggedInUser=this.sysSvc.loggedInUser;
 
     this.route.params.subscribe(parms => this.productId = parms["id"]);
-    console.log('productId= '+this.productId);
     this.productSvc.get(this.productId).subscribe(
       resp => {
           this.product= resp as Product;},
@@ -46,7 +45,6 @@ export class ProductEditComponent implements OnInit {
     .subscribe(
       resp => {
         this.vendors = resp as Vendor[];
-        console.log("list of vendors: ", this.vendors);
       },
       err => {
         console.log(err);

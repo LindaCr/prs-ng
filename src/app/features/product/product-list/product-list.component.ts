@@ -30,7 +30,6 @@ export class ProductListComponent implements OnInit {
     .subscribe(
       resp => {
         this.products = resp as Product[];
-        console.log("list of products: ", this.products);
       },
       err => {
         console.log(err);

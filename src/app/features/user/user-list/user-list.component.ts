@@ -26,7 +26,6 @@ export class UserListComponent implements OnInit {
 
     this.loggedInUser=this.sysSvc.loggedInUser;
 
-    console.log('User logged in is: ',this.sysSvc.loggedInUser )
     this.userSvc.list()
     .subscribe(
       resp => {

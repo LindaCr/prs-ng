@@ -36,7 +36,6 @@ export class ProductCreateComponent implements OnInit {
     .subscribe(
       resp => {
         this.vendors = resp as Vendor[];
-        console.log("list of vendors: ", this.vendors);
       },
       err => {
         console.log(err);

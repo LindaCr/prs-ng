@@ -31,7 +31,6 @@ export class RequestDetailComponent implements OnInit {
     this.loggedInUser=this.sysSvc.loggedInUser;
 
     this.route.params.subscribe(parms => this.requestId = parms["id"]);
-    console.log('requestId= '+this.requestId);
     this.requestSvc.get(this.requestId).subscribe(
       resp => {
           this.request= resp as Request;},

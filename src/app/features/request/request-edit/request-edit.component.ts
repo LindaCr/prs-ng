@@ -34,7 +34,6 @@ export class RequestEditComponent implements OnInit {
     this.loggedInUser=this.sysSvc.loggedInUser;
 
     this.route.params.subscribe(parms => this.requestId = parms["id"]);
-    console.log('productId= '+this.requestId);
     this.requestSvc.get(this.requestId).subscribe(
       resp => {
           this.request= resp as Request;},
@@ -45,7 +44,6 @@ export class RequestEditComponent implements OnInit {
     .subscribe(
       resp => {
         this.users = resp as User[];
-        console.log("list of users: ", this.users);
       },
       err => {
         console.log(err);

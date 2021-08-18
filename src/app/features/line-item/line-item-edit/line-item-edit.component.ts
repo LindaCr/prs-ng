@@ -41,7 +41,6 @@ export class LineItemEditComponent implements OnInit {
     this.loggedInUser=this.sysSvc.loggedInUser;
 
      this.route.params.subscribe(parms => this.lineItemId = parms["id"]);
-     console.log('lineItemId= '+this.lineItemId);
      this.lineItemSvc.get(this.lineItemId).subscribe(
        resp => {
            this.lineItem= resp as LineItem;},
@@ -49,7 +48,6 @@ export class LineItemEditComponent implements OnInit {
      );
 
       this.route.params.subscribe(parms => this.requestId = parms["id"]);
-      console.log('requestId= '+this.requestId);
       this.requestSvc.get(this.requestId).subscribe(
         resp => {
             this.request= resp as Request;},
@@ -60,7 +58,6 @@ export class LineItemEditComponent implements OnInit {
     .subscribe(
       resp => {
         this.products = resp as Product[];
-        console.log("list of products: ", this.products);
       },
       err => {
         console.log(err); 

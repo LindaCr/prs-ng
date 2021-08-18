@@ -47,7 +47,6 @@ export class RequestLinesComponent implements OnInit {
         
         
     this.route.params.subscribe(parms => this.requestId = parms["id"]);
-    console.log('requestId= '+this.requestId);
     this.lineItemSvc.getLinesForRequest(this.requestId).subscribe(
       resp => { this.lineItems = resp as LineItem[];},
       err=> {console.log(err);}
@@ -75,7 +74,6 @@ export class RequestLinesComponent implements OnInit {
         );
         //get lines for request
         this.route.params.subscribe(parms => this.requestId = parms["id"]);
-        console.log('requestId= '+this.requestId);
         this.lineItemSvc.getLinesForRequest(this.requestId).subscribe(
           resp => { this.lineItems = resp as LineItem[];},
           err=> {console.log(err);}

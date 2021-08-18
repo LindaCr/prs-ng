@@ -31,7 +31,6 @@ export class UserEditComponent implements OnInit {
     this.loggedInUser=this.sysSvc.loggedInUser;
 
     this.route.params.subscribe(parms => this.userId = parms["id"]);
-    console.log('userId= '+this.userId);
     this.userSvc.get(this.userId).subscribe(
       resp => {
           this.user= resp as User;},

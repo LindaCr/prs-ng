@@ -35,19 +35,7 @@ export class RequestReviewComponent implements OnInit {
 
     this.loggedInUser=this.sysSvc.loggedInUser;
 
-    //  this.requestSvc.list()
-    //  .subscribe(
-    //    resp => {
-    //      this.requests = resp as Request[];
-    //      console.log("list of requests: ", this.requests);
-    //    },
-    //    err => {
-    //      console.log(err);
-    //    }
-    //  );
-
     this.route.params.subscribe(parms => this.requestId = parms["id"]);
-    console.log('requestId= '+this.requestId);
     this.requestSvc.getRequestsInReview(this.sysSvc.loggedInUser.id).subscribe(
       resp => { 
         this.requests = resp as Request[];
