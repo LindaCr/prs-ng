@@ -39,8 +39,8 @@
         <td>{{lineItem.id}}</td>
         <td>{{lineItem.product.name}}</td>
         <td>{{lineItem.quantity}}</td>
-        <td>{{lineItem.product.price}}</td>
-        <td>{{lineItem.request.total}}</td>
+        <td>{{lineItem.product.price | currency}}</td>
+        <td>{{lineItem.request.total | currency}}</td>
     </tr>
     </tbody>
 </table>
