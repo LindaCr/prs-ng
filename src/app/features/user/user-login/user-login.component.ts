@@ -44,4 +44,24 @@ export class UserLoginComponent implements OnInit {
     );
   }
 
+  // login() {
+  //   //call login service using username and password
+  //   this.userSvc.login(this.loginView).subscribe(
+  //     resp => {
+  //       if (resp == null) {
+  //         this.msg = "Invalid username / password combo.";
+  //       }
+  //       else {
+  //         this.user = resp as User;
+  //         this.systemSvc.loggedInUser = this.user;
+  //         this.router.navigateByUrl('/request-list');
+  //       }
+  //     },
+  //     err => {
+  //       this.msg = "Error during login"
+  //     }
+  //   );
+  // }
+
+
 }
